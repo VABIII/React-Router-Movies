@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import Movie from "./Movie";
 
 export default function MovieList(props) {
   return (
@@ -15,7 +16,6 @@ export default function MovieList(props) {
 
 function MovieDetails(props) {
   const { title, director, metascore } = props.movie;
-    console.log(props)
   return (
     <div className="movie-card">
       <h2>{title}</h2>
