@@ -4,6 +4,7 @@ import {Route, Link, Switch} from "react-router-dom";
 import MovieList from "./Movies/MovieList";
 import SavedList from './Movies/SavedList';
 import Movie from "./Movies/Movie";
+import Header from "./Header";
 
 export default function App () {
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
@@ -23,19 +24,25 @@ export default function App () {
     getMovies();
   }, []);
 
-  const addToSavedList = id => {
-    // This is stretch. Prevent the same movie from being "saved" more than once
+  const addToSavedList = movie => {
+    setSaved([...saved, movie]);
+    console.log(saved)
   };
 
   return (
     <div>
-      <SavedList list={[ /* This is stretch */]} />
-      <Route path={`/movies/:id`}>
-        <Movie/>
+    {/*<Switch>*/}
+        <Header />
+      <Route path="/saved-movies">
+          <SavedList saved={saved} />
       </Route>
-      <Route path="/">
+      <Route path={`/movies/:id`}>
+        <Movie addToSavedList={addToSavedList} />
+      </Route>
+      <Route exact path="/">
         <MovieList movies={movieList}/>
       </Route>
+    {/*</Switch>*/}
       </div>
   );
 }

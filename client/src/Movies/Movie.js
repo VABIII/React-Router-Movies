@@ -5,7 +5,9 @@ import MovieCard from "./MovieCard";
 
 
 export default function Movie(props) {
+  const { addToSavedList } = props;
   const [movie, setMovie] = useState();
+
 
   let  {id}  = useParams();
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
@@ -17,7 +19,7 @@ export default function Movie(props) {
       .then(res => {
         // Study this response with a breakpoint or log statements
         // and set the response data as the 'movie' slice of state
-        console.log(res.data)
+        // console.log(res.data)
         setMovie(res.data)
       })
       .catch(error => {
@@ -28,7 +30,9 @@ export default function Movie(props) {
   }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = evt => { }
+  const saveMovie = evt => {
+    addToSavedList(movie);
+  }
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -37,6 +41,6 @@ export default function Movie(props) {
   // const { title, director, metascore, stars } = movie;
 
   return (
-      <MovieCard movie={movie} />
+      <MovieCard movie={movie} saveMovie={saveMovie} />
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function MovieCard (props) {
-  const {movie} = props;
+  const {movie, saveMovie} = props;
   const { title, director, metascore, stars } = movie;
 
 
@@ -23,7 +23,7 @@ export default function MovieCard (props) {
               </div>
           ))}
         </div>
-        <div className="save-button">Save</div>
+        <div className="save-button" onClick={saveMovie}>Save</div>
       </div>
   );
 
