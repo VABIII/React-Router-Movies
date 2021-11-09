@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import Movie from "./Movie";
 
 export default function MovieList(props) {
   return (

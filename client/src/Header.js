@@ -7,10 +7,7 @@ const StyledDiv = styled.div`
   display: flex;
 `
 
-
-
 export default function Header() {
-
     return(
         <div className="header">
             <Link className="Link" to="/">Home</Link>

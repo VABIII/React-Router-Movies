@@ -31,8 +31,8 @@ export default function App () {
 
   return (
     <div>
-    {/*<Switch>*/}
-        <Header />
+    <Switch>
+      <Header />
       <Route path="/saved-movies">
           <SavedList saved={saved} />
       </Route>
@@ -42,7 +42,7 @@ export default function App () {
       <Route exact path="/">
         <MovieList movies={movieList}/>
       </Route>
-    {/*</Switch>*/}
+    </Switch>
       </div>
   );
 }

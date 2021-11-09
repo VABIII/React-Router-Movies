@@ -4,7 +4,6 @@ export default function MovieCard (props) {
   const {movie, saveMovie} = props;
   const { title, director, metascore, stars } = movie;
 
-
   return (
       <div className="save-wrapper">
         <div className="movie-card">
